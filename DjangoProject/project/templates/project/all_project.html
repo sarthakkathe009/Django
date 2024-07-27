@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Project
+{% endblock %}
+
+{% block content %}
+<h1>This is Project Home Page</h1>
+{% for chai in chais %}
+<img src="{{chai.image.url}}" alt="img">
+<h5>{{chai.name}}</h5>
+<a href={% url "chai_details" chai.id %}><!--chai_details is the name given in urls-->
+    <button>{{chai.type}}-{{chai.id}}</button>
+</a>
+{% endfor %}
+{% endblock %}
+
