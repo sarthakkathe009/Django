@@ -5,13 +5,28 @@ Project
 {% endblock %}
 
 {% block content %}
-<h1>This is Project Home Page</h1>
-{% for chai in chais %}
-<img src="{{chai.image.url}}" alt="img">
-<h5>{{chai.name}}</h5>
-<a href={% url "chai_details" chai.id %}><!--chai_details is the name given in urls-->
-    <button>{{chai.type}}-{{chai.id}}</button>
-</a>
-{% endfor %}
+<h2 class="text-center">Chai Varieties</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                    {% for chai in chais %}
+                    <div class="col-md-4">
+                        <div class="card my-3" style="width: 18rem;height: 18rem;">
+                            <img class="card-img-top" src="{{chai.image.url}}" alt="img">
+                            <div class="card-body">
+                                <h5 class="card-title">{{chai.name}}</h5>
+                                <a href={% url "chai_details" chai.id %}><!--chai_details is the name given in urls-->
+                                    <button>{{chai.type}}-{{chai.id}}</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
 
